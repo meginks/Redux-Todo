@@ -1,12 +1,32 @@
-const todos = (state = [], action) => {
+import { ADD_TODO } from '../actions/index.js';
+
+
+
+const initialState = {
+    todos: [
+    {todo: 'wash dishes', 
+    id: Date.now()}, 
+    {todo: 'laundry', 
+    id: Date.now()}
+    ]
+}
+
+
+
+
+
+const todos = (state = initialState, action) => {
     switch (action.type) {
       case ADD_TODO:
-        return [
-          ...state,
-          
-        ]
-        case DELETE_TODO: 
-        return [
-            ...state,
-        ]
-    }
+        return {
+            ...state, 
+            newTodo: action.payload
+        }
+        default: 
+        return {
+            state
+        }
+    } 
+} 
+
+export default todos;
