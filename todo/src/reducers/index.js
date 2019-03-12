@@ -35,7 +35,7 @@ const initialState = {
       };
       return {
         ...state,
-        members: [...state.todos, newTask]
+        todos: [...state.todos, newTask]
       };
       case TOGGLE_TODO:
       return {

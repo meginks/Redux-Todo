@@ -35,15 +35,14 @@ class TodoList extends React.Component {
                 })}
 
             </div>
-            <form onSubmit={() => this.props.addTodo}>
             <input 
                 type="text"
                 name="task"
                 value={this.state.newTask}
                 placeholder="add task here"
+                onChange={this.handleChanges}
             />
-            <button onClick={this.props.addTodo}>Add To Do</button>
-        </form>
+            <button onClick={this.addTodo}>Add To Do</button>
             </div>
         )
     }
