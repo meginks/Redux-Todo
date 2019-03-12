@@ -40,17 +40,13 @@ const initialState = {
       case TOGGLE_TODO:
       return {
         ...state,
-        todos: state.todos.map(todo => {
-          if (todo.id === action.payload) {
-            return {
-              ...todo,
-              completed: !todo.completed
-            };
+        todos: state.todos.map((todo, id) => {
+          if (action.payload === id) {
+            todo.completed = !todo.completed;
           }
           return todo;
         })
-      };
-
+      }
         default: 
         return {
             ...state
