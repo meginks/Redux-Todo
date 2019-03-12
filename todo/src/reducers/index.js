@@ -21,8 +21,7 @@ const initialState = {
       case DELETE_TODO: 
       return {
           ...state, 
-          todos: state.todos.filter(todo => 
-            todo.id === action.payload )
+          todos: state.todos.filter(todo => !todo.task)
       }
       case TOGGLE_TODO:
       return {
@@ -37,7 +36,7 @@ const initialState = {
       case CLEAR_COMPLETE: 
       return {
           ...state, 
-          todos: state.todos.filter((todo) => todo.completed === true
+          todos: state.todos.filter((todo) => todo.completed !== true
           )
       }
         default: 

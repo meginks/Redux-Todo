@@ -10,10 +10,10 @@ return {
 }
 }
 
-export const deleteTodo = (id) => {
+export const deleteTodo = (task) => {
     return {
         type: DELETE_TODO, 
-        payload: id
+        payload: task
     }
 } 
 
