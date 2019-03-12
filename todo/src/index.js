@@ -7,11 +7,12 @@ import './index.css';
 import App from './App';
 
 
-const store = createStore(todos, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(todos);
 
 
 ReactDOM.render(
     <Provider store={store}>
-    <App />
-    </Provider>, document.getElementById('root'));
+    <App />,
+    </Provider>,
+     document.getElementById('root'));
 
