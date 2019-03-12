@@ -18,8 +18,8 @@ class TodoList extends React.Component {
         this.props.clearComplete(); 
     }
 
-    deleteTodo = () => {
-        this.props.deleteTodo();
+    deleteTodo = (id) => {
+        this.props.deleteTodo(id);
     }
 
     handleChanges = e => {
@@ -37,11 +37,11 @@ class TodoList extends React.Component {
             <div>
                 {this.props.todos.map((todo, index) => {
                     return (
-                        <div>
+                        <div className="todo-section">
                     <div className={`todo-item ` + (todo.completed ? 'completed' : null)} key={index} onClick={()=> this.toggleTodo(index)}> 
                         {todo.task} 
                         </div>
-                        <button onClick={this.deleteTodo}>delete</button>
+                        <button className="delete-button" onClick={this.deleteTodo}>delete</button>
                         </div> )
                 })}
 

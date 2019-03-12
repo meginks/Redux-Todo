@@ -37,7 +37,7 @@ const initialState = {
       case CLEAR_COMPLETE: 
       return {
           ...state, 
-          todos: state.todos.filter((todo) => todo.completed !== true
+          todos: state.todos.filter((todo) => todo.completed === true
           )
       }
         default: 
