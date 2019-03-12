@@ -1,6 +1,4 @@
-import { ADD_TODO } from '../actions/index.js';
-
-
+import { ADD_TODO , TOGGLE_TODO } from '../actions/index.js';
 
 const initialState = {
     todos: [
@@ -27,22 +25,37 @@ const initialState = {
     
 }
 
-
-
-
-
  const todos = (state = initialState, action) => {
     switch (action.type) {
       case ADD_TODO:
-        return {
-            ...state, 
-            newTodo: action.payload
-        }
+      const newTask = {
+        task: action.payload,
+        id: Date.now(),
+        completed: false
+      };
+      return {
+        ...state,
+        members: [...state.todos, newTask]
+      };
+      case TOGGLE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return {
+              ...todo,
+              completed: !todo.completed
+            };
+          }
+          return todo;
+        })
+      };
+
         default: 
         return {
-            state
+            ...state
         }
     } 
 } 
 
-export default todos;
+export default todos; 

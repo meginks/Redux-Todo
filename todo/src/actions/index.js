@@ -3,20 +3,23 @@ export const DELETE_TODO = 'DELETE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 
-const addTodo = () => {
+export const addTodo = (task) => {
 return {
     type: ADD_TODO, 
+    payload: task
 }
 }
 
-const deleteTodo = () => {
-    return {
-        type: DELETE_TODO
-    }
-} 
+// export const deleteTodo = () => {
+//     return {
+//         type: DELETE_TODO
+//     }
+// } 
 
-const toggleTodo = () => {
+export const toggleTodo = id => {
+    console.log(id);
     return {
-        type: TOGGLE_TODO
-    }
-}
+      type: TOGGLE_TODO,
+      payload: id
+    };
+  };
