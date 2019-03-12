@@ -1,26 +1,7 @@
-import { ADD_TODO , TOGGLE_TODO } from '../actions/index.js';
+import { ADD_TODO , TOGGLE_TODO, CLEAR_COMPLETE } from '../actions/index.js';
 
 const initialState = {
     todos: [
-        {task: 'clean bathroom', 
-        id: 1, 
-        completed: false
-        }, 
-          
-        {task: 'take out trash', 
-        id: 2, 
-        completed: false
-        }, 
-    
-        {task: 'cook dinner', 
-        id: 3, 
-        completed: false
-        }, 
-    
-        {task: 'do laundry', 
-        id: 4, 
-        completed: false
-        }
     ]
     
 }
@@ -46,6 +27,12 @@ const initialState = {
           }
           return todo;
         })
+      }
+      case CLEAR_COMPLETE: 
+      return {
+          ...state, 
+          todos: state.todos.filter((todo) => todo.completed !== true
+          )
       }
         default: 
         return {

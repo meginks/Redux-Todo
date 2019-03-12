@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { addTodo , toggleTodo } from '../actions'; 
+import { addTodo , toggleTodo, clearComplete } from '../actions'; 
 import './todolist.css';
 
 class TodoList extends React.Component {
@@ -12,6 +12,10 @@ class TodoList extends React.Component {
         e.preventDefault();
         this.props.addTodo(this.state.newTask); 
         this.setState({ newTask: ''})
+    } 
+
+    clearComplete = () => {
+        this.props.clearComplete(); 
     }
 
     handleChanges = e => {
@@ -24,7 +28,7 @@ class TodoList extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="todo-list">
             <h1>To Do List</h1>
             <div>
                 {this.props.todos.map((todo, index) => {
@@ -35,6 +39,7 @@ class TodoList extends React.Component {
                 })}
 
             </div>
+            <form onSubmit={this.addTodo}>
             <input 
                 type="text"
                 name="task"
@@ -42,7 +47,9 @@ class TodoList extends React.Component {
                 placeholder="add task here"
                 onChange={this.handleChanges}
             />
-            <button onClick={this.addTodo}>Add To Do</button>
+            <button className="add-button" onClick={this.addTodo}>Add To Do</button>
+            </form>
+            <button className="clear-button" onClick={this.clearComplete}>Clear Completed</button>
             </div>
         )
     }
@@ -57,4 +64,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, { addTodo, toggleTodo } )(TodoList); 
+export default connect(mapStateToProps, { addTodo, toggleTodo, clearComplete } )(TodoList); 

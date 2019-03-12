@@ -1,8 +1,50 @@
+.todo-list {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .todo-item {
-    padding: 2rem;
-    border: 1px solid red;
+    padding: .5rem;
+    font-size: 2rem;
+    margin: .5rem;
 }
 
 .completed {
-    text-decoration: line-through;
+    text-decoration: red line-through;
+    
+}
+
+h1 {
+    font-size: 3rem;
+}
+form {
+    margin: .5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+}
+input {
+    padding: .5rem; 
+    font-size: 1.5rem;
+    text-align: center;
+    border: 1px solid green;
+    color: green;
+}
+
+.add-button {
+    padding: .5rem;
+    font-size: 1.5rem;
+    background-color: green;
+    font-weight: bold;
+}
+
+.clear-button {
+    background-color: red;
+    padding: .5rem;
+    font-size: 1.5rem;
+    margin: .5rem;
+    font-weight: bold;
 }

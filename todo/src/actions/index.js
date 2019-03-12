@@ -1,7 +1,6 @@
 export const ADD_TODO = 'ADD_TODO'; 
-export const DELETE_TODO = 'DELETE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
-
+export const CLEAR_COMPLETE = 'CLEAR_COMPLETE';
 
 export const addTodo = (task) => {
 return {
@@ -23,3 +22,9 @@ export const toggleTodo = id => {
       payload: id
     };
   };
+
+  export const clearComplete = () => {
+      return {
+          type: CLEAR_COMPLETE,
+      }
+  }
