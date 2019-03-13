@@ -41,7 +41,7 @@ class TodoList extends React.Component {
                     <div className={`todo-item ` + (todo.completed ? 'completed' : null)} key={index} onClick={()=> this.toggleTodo(index)}> 
                         {todo.task} 
                         </div>
-                        <button className="delete-button" onClick={() => this.deleteTodo(todo.task)}>delete</button>
+                        <button className="delete-button" onClick={() => this.deleteTodo(todo.id)}>delete</button>
                         </div> )
                 })}
 
